@@ -12,6 +12,7 @@ class CodmingOutApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CodmingOut Web App',
+      debugShowCheckedModeBanner: false,
       routes: {
         '/' : (context) => HomePage(),
         HomePage.routeName : (context) => HomePage(),

@@ -36,7 +36,14 @@ class UpperBarWidget extends StatelessWidget {
 
   Widget _buildRouteButton(BuildContext context, String text, String routeName) {
     return GestureDetector(
-      child: Text(text),
+      child: Container(
+        width: 100,
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
       onTap: () => Navigator.pushNamed(context, routeName),
     );
   }
@@ -46,28 +53,26 @@ class UpperBarWidget extends StatelessWidget {
     Widget resultUpperBar = _upperBar ?? _buildDefaultUpperBar(context);
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 253, 243, 227),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5
-            )
-          ]
-        ),
-        child: Stack(
-          children: [
-            Container(
-              height: _height,
-              child: resultUpperBar
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(255, 253, 243, 227),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 5
+                )
+              ]
             ),
-            Container(
-              padding: EdgeInsets.only(top: _height),
-              child: _child,
-            )
-          ],
-        )
-      ),
+            height: _height,
+            child: resultUpperBar
+          ),
+          Container(
+            padding: EdgeInsets.only(top: _height),
+            child: _child,
+          )
+        ],
+      )
     );
   }
 }
