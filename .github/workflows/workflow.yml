@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret: $
+      my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -17,19 +17,14 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
-        # 1. change path which exist lib/main.dart
         working-directory: ./app
       - run: |
-          # 2. change path to [existed lib/main.dart path]/build/web
           cd app/build/web
           git init
-           # 3. change your email
           git config --global user.email doralife12@naver.com
-          # 4. change your name
           git config --global user.name Coalery
           git status
-          # 5. change your repository
-          git remote add origin https://github.com/CodmingOut/codmingout.github.io.git
+          git remote add origin https://${{secrets.commit_secret}}@github.com/CodmingOut/codmingout.github.io.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
