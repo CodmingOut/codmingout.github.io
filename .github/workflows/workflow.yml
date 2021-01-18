@@ -16,6 +16,7 @@ jobs:
           channel: 'dev'
       - run: flutter config --enable-web
       - run: pwd
+      - run: ls -al
       - run: flutter pub get
       - run: flutter build web --release
         working-directory: ./app
