@@ -18,6 +18,7 @@ jobs:
       - run: pwd
       - run: ls -al
       - run: cd app
+      - run: ls -al
       - run: flutter pub get
       - run: flutter build web --release
       - run: |
