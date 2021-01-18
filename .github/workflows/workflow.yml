@@ -15,14 +15,13 @@ jobs:
         with:
           channel: 'dev'
       - run: flutter config --enable-web
-      - run: pwd
-      - run: ls -al
-      - run: cd app
-      - run: ls -al
-      - run: flutter pub get
-      - run: flutter build web --release
       - run: |
-          cd build/web
+          cd app
+          flutter pub get
+      - run: flutter build web --release
+        working-directory: ./app
+      - run: |
+          cd app/build/web
           git init
           git config --global user.email doralife12@naver.com
           git config --global user.name Coalery
