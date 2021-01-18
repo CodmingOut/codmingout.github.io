@@ -25,7 +25,7 @@ class UpperBarWidget extends StatelessWidget {
       children: [
         Padding( // HOME SUPPORT ABOUT
           padding: EdgeInsets.all(5),
-          child: Image.network('/assets/icon.png')
+          child: Image.network('/assets/assets/icon.png')
         ),
         _buildRouteButton(context, 'HOME', HomePage.routeName),
         _buildRouteButton(context, 'SUPPORT', SupportPage.routeName),
